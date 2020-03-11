@@ -6,7 +6,7 @@ This repository contains the data I collected for my bachelor thesis as well as 
 
 ## Replicating the data
 
-To replicate the results you have to make sure you installed clingo 5.4[repository](https://github.com/potassco/clingo) on a cluster of your choice (I ran the benchmarks on a cluster with Linux, Intel Xeon E5-2650v4 processors with 2.20GHz and 64 GB memory).
+To replicate the results you have to make sure you installed [clingo 5.4](https://github.com/potassco/clingo) on a cluster of your choice (I ran the benchmarks on a cluster with Linux, Intel Xeon E5-2650v4 processors with 2.20GHz and 64 GB memory).
 
 The folder `benchmark-tool` contains the test instances as well as the necessary configuration files. The test instances are located in the folder `benchmark-tool/benchmarks/`. Configuration files can be found in `benchmark-tool/runscripts/`.
 
