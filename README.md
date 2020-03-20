@@ -13,16 +13,19 @@ The folder `benchmark-tool` contains the test instances as well as the necessary
 There are in total four benchmarks (see the configuration files in `benchmark-tool/runscripts/`) that have to be started one after another. Upload the folder `benchmark-tool` to the cluster and execute on of the following command per instance:
 
 ```shell
-./bgen runscripts/runscript-asprilo-r2-golog.xml OR
-./bgen runscripts/runscript-asprilo-r2-nogolog.xml OR
-./bgen runscripts/runscript-asprilo-r5-golog.xml OR
+./bgen runscripts/runscript-asprilo-r2-golog.xml    ---OR---
+./bgen runscripts/runscript-asprilo-r2-nogolog.xml  ---OR---
+./bgen runscripts/runscript-asprilo-r5-golog.xml    ---OR---
 ./bgen runscripts/runscript-asprilo-r5-nogolog.xml
 ```
 
-This creates a folder `output-asprilo-r{2,5}-{golog,nogolog}` that contains a shell script which will start the benchmark (walltime is 12hrs). Enter:
+This creates a folder `output-asprilo-r{2,5}-{golog,nogolog}` that contains a shell script which will start the benchmark (walltime is 12hrs). To start a benchmark enter:
 
 ```shell
-./output-asprilo-r{2,5}-{golog,nogolog}/asprilo-bmarks/zuse/start.sh
+./output-asprilo-r2-golog/asprilo-bmarks/zuse/start.sh    ---OR---
+./output-asprilo-r2-nogolog/asprilo-bmarks/zuse/start.sh  ---OR---
+./output-asprilo-r5-golog/asprilo-bmarks/zuse/start.sh    ---OR---
+./output-asprilo-r5-nogolog/asprilo-bmarks/zuse/start.sh
 ``` 
 
 Each instance runs 100 times on a single core with the following clingo options:
