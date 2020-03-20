@@ -28,7 +28,7 @@ header = [
     "Grounding StDev"
 ]
 
-# create header
+# create csv header
 stats_header=""
 for head in header:
     stats_header += head
@@ -40,7 +40,7 @@ for head in header:
 
 stats = []
 
-# go through all subdirs to read out stats from clingo/telingo
+# go through all subdirs of results folder to read out stats from clingo
 dir_list = listdir(instances_path)
 
 for dir in dir_list:
@@ -49,7 +49,7 @@ for dir in dir_list:
 
     # extract instance number
     stats_csv_line = str(int(dir[(len(dir)-6):(len(dir)-3)])) + delimiter
-    # extract horizon number
+    # extract horizon
     stats_csv_line += dir[0:2] + delimiter
 
     total_list = []
@@ -63,6 +63,7 @@ for dir in dir_list:
 
         if stats_file.mode == "r":
             file_content = stats_file.read()
+            # fix broken JSON
             if "*** Info : (clingo): INTERRUPTED by signal!" in file_content:
                 interrupt = True
                 file_content = file_content.replace("*** Info : (clingo): INTERRUPTED by signal!\n", "")
@@ -82,6 +83,7 @@ for dir in dir_list:
                 solving_stdev = stdev(solving_list)
                 grounding_stdev = stdev(grounding_list)
 
+                # create csv line for current instance
                 stats_csv_line += str(total_mean) + "," + str(total_stdev) + "," +\
                     str(solving_mean) + "," + str(solving_stdev) + "," +\
                     str(grounding_mean) + "," + str(grounding_stdev)
