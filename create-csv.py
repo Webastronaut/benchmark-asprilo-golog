@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3git 
+
 from sys import argv
 from os import listdir
 from datetime import date
