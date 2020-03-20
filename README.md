@@ -6,23 +6,26 @@ This repository contains the data I collected for my bachelor thesis as well as 
 
 ## Running Benchmarks
 
-To replicate the results you have to make sure you installed [clingo 5.4](https://github.com/potassco/clingo) on a cluster of your choice (I ran the benchmarks on a [cluster](https://www.cs.uni-potsdam.de/bs/research/labs.html) where each node runs Debian 9 and has 64 GB of memory and two Intel Xeon E5-2650v4 processors with 2.20GHz).
+To replicate the results you have to make sure you installed [clingo 5.4](https://github.com/potassco/clingo) on a cluster of your choice (I ran the benchmarks on a [cluster](https://www.cs.uni-potsdam.de/bs/research/labs.html) ([Turing](https://www.cs.uni-potsdam.de/bs/research/labs.html#turing)) where each node runs Debian 9 and has 64 GB of memory and two Intel Xeon E5-2650v4 processors with 2.20GHz).
 
 The folder `benchmark-tool` contains the test instances as well as the necessary configuration files. The test instances are located in the folder `benchmark-tool/benchmarks/`. Configuration files can be found in `benchmark-tool/runscripts/`.
 
 There are in total four benchmarks (see the configuration files in `benchmark-tool/runscripts/`) that have to be started one after another. Upload the folder `benchmark-tool` to the cluster and execute on of the following command per instance:
 
 ```shell
-./bgen runscripts/runscript-asprilo-r2-golog.xml OR
-./bgen runscripts/runscript-asprilo-r2-nogolog.xml OR
-./bgen runscripts/runscript-asprilo-r5-golog.xml OR
+./bgen runscripts/runscript-asprilo-r2-golog.xml    ---OR---
+./bgen runscripts/runscript-asprilo-r2-nogolog.xml  ---OR---
+./bgen runscripts/runscript-asprilo-r5-golog.xml    ---OR---
 ./bgen runscripts/runscript-asprilo-r5-nogolog.xml
 ```
 
-This creates a folder `output-asprilo-r{2,5}-{golog,nogolog}` that contains a shell script which will start the benchmark (walltime is 12hrs). Enter:
+This creates a folder `output-asprilo-r{2,5}-{golog,nogolog}` that contains a shell script which will start the benchmark (walltime is 12hrs). To start a benchmark enter:
 
 ```shell
-./output-asprilo-r{2,5}-{golog,nogolog}/asprilo-bmarks/zuse/start.sh
+./output-asprilo-r2-golog/asprilo-bmarks/zuse/start.sh    ---OR---
+./output-asprilo-r2-nogolog/asprilo-bmarks/zuse/start.sh  ---OR---
+./output-asprilo-r5-golog/asprilo-bmarks/zuse/start.sh    ---OR---
+./output-asprilo-r5-nogolog/asprilo-bmarks/zuse/start.sh
 ``` 
 
 Each instance runs 100 times on a single core with the following clingo options:
